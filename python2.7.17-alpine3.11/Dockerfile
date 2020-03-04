@@ -4,6 +4,7 @@ LABEL maintainer="Rockallite Wulf <rockallite.wulf@gmail.com>"
 
 RUN apk add --no-cache --virtual .build-deps gcc libc-dev \
     && pip install meinheld gunicorn \
+    && rm -rf ~/.cache/pip \
     && apk del .build-deps
 
 COPY ./entrypoint.sh /entrypoint.sh
